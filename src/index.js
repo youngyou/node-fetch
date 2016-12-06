@@ -24,7 +24,7 @@ import FetchError from './fetch-error';
  * @param   Object   opts  Fetch options
  * @return  Promise
  */
-function fetch(url, opts) {
+export function fetch(url, opts) {
 
 	// allow custom promise
 	if (!fetch.Promise) {
@@ -204,8 +204,6 @@ function fetch(url, opts) {
 
 };
 
-module.exports = fetch;
-
 /**
  * Redirect code matching
  *
@@ -225,6 +223,8 @@ fetch.Promise = global.Promise;
  * objects; existing objects are not affected.
  */
 fetch.FOLLOW_SPEC = false;
-fetch.Response = Response;
-fetch.Headers = Headers;
-fetch.Request = Request;
+export {
+	Headers,
+	Request,
+	Response
+};
